@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CommandTest</title>
+  </head>
+  <body>
+    <p>command test</p>
+    <input id="viewCode" type="text">
+  </body>
+  <script>
+    const cmdKeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65] //↑↑↓↓←→←→BA
+    let cmdIndex = 0
+
+    const viewCodeInput = document.getElementById('viewCode')
+
+    document.addEventListener('keydown', function(e){
+      if(e.keyCode === cmdKeys[cmdIndex]){
+        cmdIndex++
+        if(cmdIndex >= cmdKeys.length){
+          cmdIndex=0
+          alert('OK')
+        }
+      }else{
+        cmdIndex=0
+      }
+      viewCodeInput.value = e.keyCode
+    })
+  </script>
+</html>
